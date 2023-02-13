@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer"
 import express from "express"
 
-const browser = await puppeteer.launch(/*  { headless: false } */)
+const browser = await puppeteer.launch( { headless: true, args: ['--no-sandbox'] })
 const app = express()
 
 // when reqest to express api with the same url
