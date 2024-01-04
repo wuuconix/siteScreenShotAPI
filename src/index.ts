@@ -32,7 +32,7 @@ app.listen(3000, "0.0.0.0", () => {
 async function screenshot(url: string, full: boolean) {
   const page = await browser.newPage()
   await page.setViewport({ width: 1920, height: 1080 })
-  await page.goto(url, { waitUntil: "networkidle2" })
+  await page.goto(url, { waitUntil: full ? "networkidle0" : "networkidle2" })
   const buffer = await page.screenshot({
     fullPage: full
   })
